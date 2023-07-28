@@ -3,4 +3,4 @@
 3) select strftime('%Y-%m-%d', InvoiceDate) as 'Invoice Date', sum(Total) as 'Total Invoice Bill', avg(Total) as 'Avg Invoice Bill' from invoices where strftime('%m', InvoiceDate) = '06' and strftime('%Y', InvoiceDate) = '2020' group by strftime('%d', InvoiceDate);
 4) select TrackId, count(TrackId) as total_count from invoice_items group by TrackId order by total_count desc;
 5)  select distinct albums.ArtistId, artists.Name from albums inner join artists on artists.ArtistId = albums.ArtistId where albums.Title not in (select tracks.Name from playlist_track inner join tracks where playlist_track.TrackId=tracks.TrackId);
-6) select albums.AlbumId, albums.Title from albums inner join tracks on tracks.AlbumId=albums.AlbumId where tracks.TrackId in (select playlist_track.TrackId from playlist_track group by playlist_track.TrackId having count(playlist_track.TrackId) > 4)
+6) select albums.AlbumId, albums.Title from albums inner join tracks on tracks.AlbumId=albums.AlbumId where tracks.TrackId in (select playlist_track.TrackId from playlist_track group by playlist_track.TrackId having count(playlist_track.TrackId) > 10)
