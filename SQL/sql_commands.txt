@@ -1,0 +1,3 @@
+1) select CustomerId, FirstName, LastName, City from customers where FirstName like 'N%' or City = 'Prague';
+2) select TrackId, Name, Composer, UnitPrice from tracks where UnitPrice between 0 and 1 and Composer not like '%T%';
+3) select strftime('%Y-%m-%d', InvoiceDate) as 'Invoice Date', sum(Total) as 'Total Invoice Bill', avg(Total) as 'Avg Invoice Bill' from invoices where strftime('%m', InvoiceDate) = '06' and strftime('%Y', InvoiceDate) = '2020' group by strftime('%d', InvoiceDate);
